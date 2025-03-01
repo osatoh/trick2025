@@ -9,119 +9,126 @@ h
 #=> 30476
 k
 #=>476
-k.to_s.split('').delete_if { it.to_i < (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) }.then(&:join).to_i
+a = k.to_s.split('').delete_if { it.to_i < (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) }.then(&:join).to_i
 #=> 436
-(k.to_s.split('').delete_if { it.to_i < (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) }.then(&:join).to_i - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))
+m = e.to_s.split('').map(&:to_i).sum
+q = k.to_s.split('').map(&:to_i).sum
+b = (a - (m % ((m - q)) + ((k - e) / (q * q) % ((m - q)))) * (m % ((m - q))))
 #=>208
-((h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + e.to_s.split('').map(&:to_i).sum - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) + ((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))))
+j = (h >> (m - q))
+f = j + m - (m % ((m - q)) + ((k - e) / (q * q) % ((m - q))))
+g = ((m % ((m - q)) + ((k - e) / (q * q) % ((m - q)))) * (m % ((m - q)) + ((k - e) / (q * q) % ((m - q)))))
+c = (f + g)
 #=> 119
-(k >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))
+d = (k >> (m - q))
 #=> 108
-(h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + e.to_s.split('').map(&:to_i).sum - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))
+f
 #=> 100
-((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))))
+g
 #=> 97
-(e >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))
+i = (e >> (m - q))
 #=>90
-(h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))
+j
 #=>76
-(k.to_s.split('').delete_if { it.to_i <= (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) }.then(&:join).to_i)
+l = (k.to_s.split('').delete_if { it.to_i <= (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) }.then(&:join).to_i)
 #=>28
-e.to_s.split('').map(&:to_i).sum
+m
 #=>23
-h.to_s.split('')[..(h.to_s.split('').map(&:to_i).sum / k.to_s.split('').map(&:to_i).sum)].join.to_i
+p = h.to_s.split('').map(&:to_i).sum
+n = h.to_s.split('')[..(p / q)].join.to_i
 #=>22
-(h >> (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))))
+o = (h >> (m % ((m - q)) + ((k - e) / (q * q) % ((m - q)))))
 #=> 20
-h.to_s.split('').map(&:to_i).sum
+p
 #=> 20
-k.to_s.split('').map(&:to_i).sum
+q
 #=> 15
-((k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))
+((q / (m % ((m - q)))) * (m / ((m - q))))
 #=>14
-((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum))
+((k - e) / (q * q))
 #=> 10
-(e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))
+(m % ((m - q)) + ((k - e) / (q * q) % ((m - q))))
 #=> 8
-(e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)
+(m - q)
 #=>7
-(((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) * ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum)) >> (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))
+(((m - q)) * ((k - e) / (q * q)) >> (m % ((m - q))))
 #=> 5
-(k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))
+(q / (m % ((m - q))))
 #=> 4
-(e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))
+(m % ((m - q)))
 #=> 3
-(e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))
+(m / ((m - q)))
 #=> 1
-(h.to_s.split('').map(&:to_i).sum / k.to_s.split('').map(&:to_i).sum)
+(p / q)
 
 # p	112
-(((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) * ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum))).chr
+(((m - q)) * ((k - e) / (q * q))).chr
 # u	117
-((e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) * ((e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) + (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))))).chr
+((m / ((m - q))) * (m / ((m - q))) * ((m / ((m - q))) + (m % ((m - q)) + ((k - e) / (q * q) % ((m - q)))))).chr
 # t	116
-((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) * (k.to_s.split('').map(&:to_i).sum + (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+((m % ((m - q))) * (q + (m / ((m - q))) * (m / ((m - q))))).chr
 # s	115
-((k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (k.to_s.split('').map(&:to_i).sum +(e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+((q / (m % ((m - q)))) * (q +(m / ((m - q))))).chr
 
 # H	72
-((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum) * ((k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) + (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+((m - q) * ((q / (m % ((m - q)))) + (m % ((m - q))))).chr
 # e	101
-(((e >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) + ((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+((i) + ((m % ((m - q))))).chr
 # l	108
-((h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + e.to_s.split('').map(&:to_i).sum - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+(f).chr
 # l	108
-((h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + e.to_s.split('').map(&:to_i).sum - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+(f).chr
 # o	111
-((k >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) - (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)).chr
+(d - (m - q)).chr
 # !	33
-(e.to_s.split('').map(&:to_i).sum + (k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+(m + (q / (m % ((m - q))))).chr
 # （スペース）32
-([(h >> (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))), (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))].sum).chr
+([o, (m % ((m - q)) + ((k - e) / (q * q) % ((m - q))))].sum).chr
 # E	69
-(h.to_s.split('')[..(h.to_s.split('').map(&:to_i).sum / k.to_s.split('').map(&:to_i).sum)].join.to_i * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))).chr
+(n * (m / ((m - q)))).chr
 # h	104
-(((h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + e.to_s.split('').map(&:to_i).sum - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) + ((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))))) >> (h.to_s.split('').map(&:to_i).sum / k.to_s.split('').map(&:to_i).sum)).chr
+(c >> (p / q)).chr
 # i	105
-(((k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) * ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum)) >> (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+(((q / (m % ((m - q)))) * (m / ((m - q)))) * (((m - q)) * ((k - e) / (q * q)) >> (m % ((m - q))))).chr
 # m	109
-((k.to_s.split('').delete_if { it.to_i < (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) }.then(&:join).to_i - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) >> ((h >> (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))) % h.to_s.split('').map(&:to_i).sum)).chr
+(b >> (o % p)).chr
 # e	101
-(((e >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) + ((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+((i) + ((m % ((m - q))))).chr
 # !	33
-(e.to_s.split('').map(&:to_i).sum + (k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+(m + (q / (m % ((m - q))))).chr
 # !	33
-(e.to_s.split('').map(&:to_i).sum + (k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
+(m + (q / (m % ((m - q))))).chr
+
+e, h, k = '愛媛県'.split('').map(&:ord);
+send(
+  [(((m - q)) * ((k - e) / (q * q))).chr,
+   ((m / ((m - q))) * (m / ((m - q))) * ((m / ((m - q))) + (m % ((m - q)) + ((k - e) / (q * q) % ((m - q)))))).chr,
+   ((m % ((m - q))) * (q + (m / ((m - q))) * (m / ((m - q))))).chr,
+   ((q / (m % ((m - q)))) * (q +(m / ((m - q))))).chr,
+  ].join, [
+
+    ((m - q) * ((q / (m % ((m - q)))) + (m % ((m - q))))).chr,
+    ((i) + ((m % ((m - q))))).chr,
+    (f).chr,
+    (f).chr,
+    (d - (m - q)).chr,
+    (m + (q / (m % ((m - q))))).chr,
+    ([o, (m % ((m - q)) + ((k - e) / (q * q) % ((m - q))))].sum).chr,
+    (n * (m / ((m - q)))).chr,
+    (c >> (p / q)).chr,
+    (((q / (m % ((m - q)))) * (m / ((m - q)))) * (((m - q)) * ((k - e) / (q * q)) >> (m % ((m - q))))).chr,
+    (b >> (o % p)).chr,
+    ((i) + ((m % ((m - q))))).chr,
+    (m + (q / (m % ((m - q))))).chr,
+    (m + (q / (m % ((m - q))))).chr
+  ].join
+)
 
 asciiart = <<mikan
 
 mikan
 
 code = <<'EOS'
-e, h, k = '愛媛県'.split('').map(&:ord);
-send(
-  [(((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) * ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum))).chr,
-   ((e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) * ((e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) + (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))))).chr,
-   ((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) * (k.to_s.split('').map(&:to_i).sum + (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-   ((k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (k.to_s.split('').map(&:to_i).sum +(e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-  ].join, [
-
-    ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum) * ((k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) + (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-    (((e >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) + ((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-    ((h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + e.to_s.split('').map(&:to_i).sum - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-    ((h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + e.to_s.split('').map(&:to_i).sum - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-    ((k >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) - (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)).chr,
-    (e.to_s.split('').map(&:to_i).sum + (k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-    ([(h >> (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))), (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))].sum).chr,
-    (h.to_s.split('')[..(h.to_s.split('').map(&:to_i).sum / k.to_s.split('').map(&:to_i).sum)].join.to_i * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))).chr,
-    (((h >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + e.to_s.split('').map(&:to_i).sum - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) + ((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))))) >> (h.to_s.split('').map(&:to_i).sum / k.to_s.split('').map(&:to_i).sum)).chr,
-    (((k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum / ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) * ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum)) >> (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-    ((k.to_s.split('').delete_if { it.to_i < (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) }.then(&:join).to_i - (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) * (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)))) >> ((h >> (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum)) + ((k - e) / (k.to_s.split('').map(&:to_i).sum * k.to_s.split('').map(&:to_i).sum) % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))) % h.to_s.split('').map(&:to_i).sum)).chr,
-    (((e >> (e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))) + ((e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-    (e.to_s.split('').map(&:to_i).sum + (k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr,
-    (e.to_s.split('').map(&:to_i).sum + (k.to_s.split('').map(&:to_i).sum / (e.to_s.split('').map(&:to_i).sum % ((e.to_s.split('').map(&:to_i).sum - k.to_s.split('').map(&:to_i).sum))))).chr
-  ].join
-)
 EOS
 
 code = code.split.join
