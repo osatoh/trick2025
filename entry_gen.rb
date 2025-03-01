@@ -77,21 +77,20 @@ asciiart = <<mikan
                    #####################################                   
                         ############################                       
 mikan
-puts asciiart.gsub(" ","").size
 
 code = <<'EOS'
-e, hime, k = '愛媛県'.split('').map(&:ord);
-b = k.to_s.split('').map(&:to_i).sum;
-u = (e.to_s.split('').map(&:to_i).sum - b);
-t = (e.to_s.split('').map(&:to_i).sum % u + ((k - e) / (b * b) % u));
-g = (t * t);
-c = [[(hime >> u), e.to_s.split('').map(&:to_i).sum].sum - t, g].sum;
-d = (k >> u);
-i = (e >> u);
-n = hime.to_s.split('')[..(hime.to_s.split('').map(&:to_i).sum / b)].join.to_i;
-o = (hime >> t);
-r = ((b / (e.to_s.split('').map(&:to_i).sum % u)) * (e.to_s.split('').map(&:to_i).sum / u));
-v = (u * ((k - e) / (b * b)) >> (e.to_s.split('').map(&:to_i).sum % u));
+e, hime, k = '愛媛県'.split('').map(&:ord);;
+b = k.to_s.split('').map(&:to_i).sum;;
+u = (e.to_s.split('').map(&:to_i).sum - b);;
+t = (e.to_s.split('').map(&:to_i).sum % u + ((k - e) / (b * b) % u));;
+g = (t * t);;;
+c = [[(hime >> u), e.to_s.split('').map(&:to_i).sum].sum - t, g].sum;;;
+d = (k >> u);;
+i = (e >> u);;
+n = hime.to_s.split('')[..(hime.to_s.split('').map(&:to_i).sum / b)].join.to_i;;
+o = (hime >> t);;
+r = ((b / (e.to_s.split('').map(&:to_i).sum % u)) * (e.to_s.split('').map(&:to_i).sum / u));;
+v = (u * ((k - e) / (b * b)) >> (e.to_s.split('').map(&:to_i).sum % u));;
 
 send(
   [(u * ((k - e) / (b * b))).chr,
@@ -122,4 +121,4 @@ code = code.split.join
 code = 'eval(%w(' + code + ')*"")'
 
 code = asciiart.gsub("#") { code.slice!(0, 1) }
-puts code.gsub(" ","").size
+puts code
